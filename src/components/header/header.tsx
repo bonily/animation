@@ -88,7 +88,6 @@ const Li = styled.li<{delay: number}>`
   animation-fill-mode: both;
 `;
 
-
 const buttonAnimation = keyframes `
   from {
     opacity: 0;
@@ -99,6 +98,7 @@ const buttonAnimation = keyframes `
     transform: scale(1);
   }
 `;
+
 const Button = styled.button`
   width: 45px;
   height: 45px;
@@ -107,9 +107,9 @@ const Button = styled.button`
   margin-top: 2vh;
   margin-right: 1vh;
   border-radius: 100%;
-  border-color: #BEBEBE;
+  border: none;
 
-  background: url("./img/account.svg")  no-repeat top;
+  background: url("./img/account.svg") no-repeat top;
   background-size: 35px 35px;
   animation: 1s ${buttonAnimation} 3.5s both;
 `;

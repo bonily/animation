@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
+import Spot from '../spot/spot';
 
 
 // // eslint-disable-next-line
@@ -56,6 +57,17 @@ const h1Animation = keyframes `
   }
 `;
 
+const h1ScaleAnimation = keyframes `
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(6);
+    opacity: 0;
+  }
+`;
+
 const H1 = styled.h1`
   display: block;
   position: relative;
@@ -75,10 +87,7 @@ const H1 = styled.h1`
   color: #BEBEBE;
   mix-blend-mode: difference;
   z-index: 3;
-  animation: 3s ${h1Animation} ease-in-out;
-  animation-fill-mode: both;
-
-
+  animation: 3s ${h1Animation} ease-in-out both, 1s ${h1ScaleAnimation} 4s both;
 `;
 
 const MainBlock = styled.main`
@@ -105,14 +114,33 @@ const LeftDiv = styled.div`
     animation-fill-mode: both;
 `;
 
+const RightDiv = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  width: 60%;
+
+  right: 0;
+`;
 
 const Main = () => {
   return (
     <MainBlock>
-      <section style={{height: `100vh`}}>
+
+      <section style={{height: `100vh`, position: `relative`}}>
         <H1>WAKE DIVISION</H1>
         <LeftDiv />
+        <RightDiv>
+          <Spot />
+          <Spot />
+          <Spot />
+          <Spot />
+          <Spot />
+        </RightDiv>
       </section>
+
     </MainBlock>
   );
 };
