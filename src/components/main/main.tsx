@@ -2,6 +2,18 @@ import React from 'react';
 import styled, {keyframes} from 'styled-components';
 
 
+// // eslint-disable-next-line
+// const {bounceInRight} = require(`react-animations`);
+
+// // eslint-disable-ndegext-line
+// const {bounceInLeft} = require(`react-animations`);
+
+// // eslint-disable-next-line
+// const {rotateInDownLeft} = require(`react-animations`);
+
+// const bounceInRightAnimation = keyframes`${bounceInRight}`;
+// // const bounceInLeftAnimation = keyframes`${bounceInLeft}`;
+
 const tramsformAnimation = keyframes `
   from {
     bottom: 0;

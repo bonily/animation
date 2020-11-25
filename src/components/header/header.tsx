@@ -17,12 +17,13 @@ const HeaderBlock = styled.header`
 `;
 
 const Img = styled.img`
-
+  opacity: 0.7;
 `;
 
 const Ul = styled.ul`
   display: flex;
   position: relative;
+
   list-style: none;
 
   margin-left: auto;
@@ -30,12 +31,10 @@ const Ul = styled.ul`
   font-size: 18px;
 `;
 
-
 const liAnimation = keyframes `
   from: {
     top: -100%;
   }
-
   30% {
     top: 150%;
   }
@@ -44,17 +43,31 @@ const liAnimation = keyframes `
   }
   75% {
     top: 10%;
-
   }
-  99% {
+  96% {
     top: 10%;
-    color: #BEBEBE;
-    mix-blend-mode: difference;
   }
   to {
     top: 10%;
+  }
+`;
+
+const liColorAnimation = keyframes `
+  from,
+  75% {
+  color: #BEBEBE;
+  mix-blend-mode: difference;
+  }
+  80% {
+    border-bottom: none;
+  }
+  99% {
+    border-bottom: 2px solid black;
+  }
+  to {
     color: black:
     mix-blend-mode: normal;
+    border-bottom: none;
   }
 `;
 
@@ -63,23 +76,42 @@ const Li = styled.li<{delay: number}>`
   position: relative;
   top: -100%;
 
+  max-height: 40px;
+
   margin-right: 15px;
 
-  animation: 2s ${liAnimation} ease-in-out;
-  animation-delay: ${({delay}) => delay + `s`};
+  font-size: 2.5vh;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  animation: 2s ${liAnimation} ${({delay}) => delay + `s`} ease-in-out, 3s ${liColorAnimation} ${({delay}) => delay / 3 + `s`};
   animation-fill-mode: both;
-
-
 `;
 
+
+const buttonAnimation = keyframes `
+  from {
+    opacity: 0;
+    transform: scale(0.2)
+  },
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 const Button = styled.button`
   width: 45px;
   height: 45px;
 
   padding: 0;
+  margin-top: 2vh;
+  margin-right: 1vh;
   border-radius: 100%;
+  border-color: #BEBEBE;
 
-  background: url("./img/account.svg") no-repeat;
+  background: url("./img/account.svg")  no-repeat top;
+  background-size: 35px 35px;
+  animation: 1s ${buttonAnimation} 3.5s both;
 `;
 
 const Header = () => {
